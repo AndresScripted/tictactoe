@@ -1,5 +1,4 @@
 /* global $*/
-/* global performLogic*/
 
 var player = "x";
 var turnsTaken = 0;
@@ -93,6 +92,7 @@ function performLogic(buttonId, tileId) {
     verticalWins();
     horizontalWins();
     diagonalWins();
+    console.log("performLogic");
 }
 
 
@@ -115,6 +115,7 @@ function switchPlayers(){
 }
 
 function match(tileId1, tileId2, tileId3){
+    console.log("match", player,"anythihng" , $(tileId1).text());
     if($(tileId1).text() === player
     && $(tileId2).text() === player
     && $(tileId3).text() === player){
@@ -138,9 +139,10 @@ function draw(){
 
 
 function verticalWins(){
-    if(match("tile1", "tile4", "tile7") ||
-        match("tile2", "tile5", "tile8") ||
-        match("tile3", "tile6", "tile9")){
+    console.log("vertical win");
+    if(match("#tile1", "#tile4", "#tile7") ||
+        match("#tile2", "#tile5", "#tile8") ||
+        match("#tile3", "#tile6", "#tile9")){
         
         endGame = true;
         $("h1").text(player + "won");
@@ -151,9 +153,9 @@ function verticalWins(){
 }
 
 function horizontalWins(){
-    if(match("tile1", "tile2", "tile3") ||
-        match("tile4", "tile5", "tile6") ||
-        match("tile7", "tile8", "tile9")){
+    if(match("#tile1", "#tile2", "#tile3") ||
+        match("#tile4", "#tile5", "#tile6") ||
+        match("#tile7", "#tile8", "#tile9")){
         
         endGame = true;
         $("h1").text(player + "won");
@@ -162,8 +164,8 @@ function horizontalWins(){
 }
 
 function diagonalWins(){
-    if(match("tile1", "tile5", "tile9") ||
-        match("tile3", "tile5", "tile7")){
+    if(match("#tile1", "#tile5", "#tile9") ||
+        match("#tile3", "#tile5", "#tile7")){
         
         endGame = true;
         $("h1").text(player + "won");
